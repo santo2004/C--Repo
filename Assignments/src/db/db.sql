@@ -5,21 +5,21 @@ create database HMBank;
 use HMBank;
 
 -- Drop tables if they exist
-DROP TABLE IF EXISTS Transactions;
-DROP TABLE IF EXISTS Accounts;
-DROP TABLE IF EXISTS Customers;
+drop table if exists Transactions;
+drop table if exists Accounts;
+drop table if exists Customers;
 
 
 --creating Customers table
 create table Customers
 (
     cust_id int identity(1,1) primary key,
-    first_name varchar(max),
-    last_name varchar(max),
+    first_name VARCHAR(50) not null,
+    last_name VARCHAR(50) not null,
     DOB date,
-    email varchar(max),
-    phn_num bigint,
-    address varchar(max)
+    email varchar(100) not null,
+    phn_num char(10) unique,
+    address varchar(255)
 );
 
 --creating Accounts table
@@ -27,9 +27,9 @@ create table Accounts
 (
     acc_id int identity(1,1) primary key,
     cust_id int,
-    acc_type varchar(max),
+    acc_type varchar(max) check (acc_type in ('Savings', 'Current', 'Zero Balance')),
     balance decimal(10,2),
-    foreign key(cust_id) references Customers(cust_id)
+    foreign key(cust_id) references Customers(cust_id) on delete cascade
 );
 
 --creating Transactions table
@@ -37,9 +37,9 @@ create table Transactions
 (
     trans_id int identity(1,1) primary key,
     acc_id int,
-    trans_type varchar(max),
+    trans_type varchar(max) check (trans_type in ('Deposit', 'Withdrawal', 'Transfer')),
     amnt decimal(10,2),
     trans_date date,
-    foreign key(acc_id) references Accounts(acc_id)
+    foreign key(acc_id) references Accounts(acc_id) on delete cascade
 );
 
