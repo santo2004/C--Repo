@@ -25,7 +25,7 @@ create table Customers
 --creating Accounts table
 create table Accounts
 (
-    acc_num int identity(1,1) primary key,
+    acc_id int identity(1,1) primary key,
     cust_id int,
     acc_type varchar(max),
     balance decimal(10,2),
