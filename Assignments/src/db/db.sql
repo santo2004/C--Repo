@@ -5,9 +5,9 @@ create database HMBank;
 use HMBank;
 
 -- Drop tables if they exist
-DROP TABLE IF EXISTS Customers;
-DROP TABLE IF EXISTS Accounts;
 DROP TABLE IF EXISTS Transactions;
+DROP TABLE IF EXISTS Accounts;
+DROP TABLE IF EXISTS Customers;
 
 
 --creating Customers table
