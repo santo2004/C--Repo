@@ -78,14 +78,14 @@ insert into Accounts(cust_id, acc_type, balance) values
 insert into Transactions(acc_id, trans_type, amnt, trans_date) values
 (1, 'Deposit', 2000.00, '2024-03-01'),
 (2, 'Withdrawal', 500.00, '2024-03-02'),
-(3, 'Deposit', 1500.00, '2024-03-03'),
+(6, 'Deposit', 1500.00, '2024-03-03'),
 (4, 'Transfer', 3000.00, '2024-03-04'),
 (5, 'Withdrawal', 2000.00, '2024-03-05'),
 (6, 'Deposit', 5000.00, '2024-03-06'),
-(7, 'Transfer', 4000.00, '2024-03-07'),
+(4, 'Transfer', 4000.00, '2024-03-07'),
 (8, 'Withdrawal', 1000.00, '2024-03-08'),
 (9, 'Deposit', 2500.00, '2024-03-09'),
-(10, 'Deposit', 3000.00, '2024-03-10');
+(5, 'Deposit', 3000.00, '2024-03-10');
 
 --displaying all 3tables
 select * from Customers;
@@ -211,22 +211,22 @@ select acc_id, avg(balance) as Avg_Bal from Accounts
 group by acc_id;
 
 --TASK 3.11:
-select acc_type,sum(balance) from Accounts
+select acc_type,sum(balance) as Total_Balance from Accounts
 group by acc_type;
 
 --TASK 3.12:
-select a.acc_id, count(*) from Accounts a
+select a.acc_id, count(*) as Highest_Transaction from Accounts a
 join Transactions t
 on a.acc_id=t.acc_id
 group by a.acc_id
 order by count(*) desc;
 
 --TASK 3.13:
-select c.cust_id,c.first_name,a.acc_id,a.acc_type,sum(a.balance)
+select c.cust_id,a.acc_id,a.acc_type,sum(a.balance) as Total_Balance
 from Customers c
 join Accounts a
 on c.cust_id=a.cust_id
-group by c.first_name;
+group by c.cust_id, c.first_name, a.acc_id, a.acc_type;
 
 --TASK 3.14:
 ---------------------------------------------------------
@@ -251,3 +251,40 @@ select acc_id from Transactions
 where amnt > (select avg(amnt) from Transactions);
 
 --TASK 4.4:
+select cust_id from Accounts
+where acc_id in 
+(select acc_id from Transactions 
+group by acc_id 
+having count(trans_id)=0);
+
+--TASK 4.5:
+select acc_id,sum(balance) as Total_Balance from Accounts
+where acc_id in 
+(select acc_id from Transactions 
+group by acc_id 
+having count(trans_id)=0)
+group by acc_id ;
+
+--TASK 4.6:
+select acc_id,balance from Accounts
+where balance in 
+(select min(balance) from Accounts);
+
+--TAKS 4.7;
+select cust_id from Accounts
+where cust_id in 
+(select cust_id from Accounts
+group by cust_id
+having count(distinct acc_type)>1);
+
+--TASK 4.8:
+--------------------------------------
+--------------------------------------
+
+--TASK 4.9:
+select * from Transactions
+where acc_id = 
+(select acc_id from Accounts
+where cust_id='4');
+
+--TASK 4.10:
