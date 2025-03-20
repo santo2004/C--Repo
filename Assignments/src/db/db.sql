@@ -153,16 +153,101 @@ where balance<5000;
 select first_name from Customers
 where address not like 'Colachel';
 
+
 --TASKS 3:
 
 --TASK 3.1:
 select avg(balance) from Accounts;
 
 --TASK 3.2:
-select acc_id, balance from Accounts
-order by balance desc limit 10;
+select top 1 acc_id, balance from Accounts
+order by balance desc;
 
 --TASK 3.3:
 select sum(amnt) as Total_Deposit from Transactions 
 where trans_date='2024-03-01' and trans_type='Deposit';
 
+--TASK 3.4:
+select top 1 first_name from Customers
+order by DOB asc;
+select top 1 first_name from Customers
+order by DOB desc;
+
+--TASK 3.5:
+select t.trans_id,t.trans_type,t.amnt,t.trans_date,a.acc_type
+from Transactions t
+inner join Accounts a
+on t.acc_id=a.acc_id;
+
+--TASK 3.6:
+select c.first_name, a.acc_id, a.acc_type, a.balance
+from Customers c
+inner join Accounts a
+on a.cust_id=c.cust_id;
+
+--TASK 3.7:
+select c.cust_id,c.first_name,a.acc_id,a.acc_type,a.balance,t.trans_type,t.amnt
+from Customers c
+join Accounts a
+on c.cust_id=a.cust_id
+join Transactions t
+on a.acc_id=t.acc_id
+where a.acc_id='6';
+
+--TASK 3.8:
+select c.first_name, count(a.acc_id) as No_of_Acc 
+from Customers C
+join Accounts a
+on c.cust_id=a.cust_id
+group by c.first_name
+having count(a.acc_id)>1;
+
+--TASK 3.9:
+---------------------------------------------------------
+---------------------------------------------------------
+
+--TASK 3.10:
+select acc_id, avg(balance) as Avg_Bal from Accounts
+group by acc_id;
+
+--TASK 3.11:
+select acc_type,sum(balance) from Accounts
+group by acc_type;
+
+--TASK 3.12:
+select a.acc_id, count(*) from Accounts a
+join Transactions t
+on a.acc_id=t.acc_id
+group by a.acc_id
+order by count(*) desc;
+
+--TASK 3.13:
+select c.cust_id,c.first_name,a.acc_id,a.acc_type,sum(a.balance)
+from Customers c
+join Accounts a
+on c.cust_id=a.cust_id
+group by c.first_name;
+
+--TASK 3.14:
+---------------------------------------------------------
+---------------------------------------------------------
+
+--TASK 4: SUBQUERY  
+
+--TASK 4.1:
+select c.first_name,a.balance from Customers c
+join Accounts a
+on c.cust_id=a.cust_id
+where a.balance=(select max(balance) from Accounts);
+
+--TASK 4.2:
+select avg(balance) from Accounts 
+where cust_id in (select cust_id from Accounts
+group by cust_id 
+having count(cust_id)>1);
+
+--TASK 4.3:
+select acc_id from Transactions 
+where amnt > (select avg(amnt) from Transactions);
+
+--TASK 4.4:
