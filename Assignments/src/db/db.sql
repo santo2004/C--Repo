@@ -144,3 +144,25 @@ where trans_id=8;
 select acc_id, balance*0.03 as Interest 
 from Accounts 
 where acc_type='Savings';
+
+--TASK 2.2.11:
+select * from Accounts
+where balance<5000;
+
+--TASK 2.2.12:
+select first_name from Customers
+where address not like 'Colachel';
+
+--TASKS 3:
+
+--TASK 3.1:
+select avg(balance) from Accounts;
+
+--TASK 3.2:
+select acc_id, balance from Accounts
+order by balance desc limit 10;
+
+--TASK 3.3:
+select sum(amnt) as Total_Deposit from Transactions 
+where trans_date='2024-03-01' and trans_type='Deposit';
+
