@@ -173,11 +173,11 @@ group by Name
 having COUNT(*) > 1;
 
 --17.
-select C.CrimeID, C.IncidentType, C.IncidentDate
-from Crime C
-join Suspect S 
-on C.CrimeID = S.CrimeID
-where S.SuspectID is null;
+select c.CrimeID, c.IncidentType, c.IncidentDate
+from Crime c
+join Suspect s 
+on c.CrimeID = s.CrimeID
+where s.SuspectID is null;
 
 --18.
 select c.*
