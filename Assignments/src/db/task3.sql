@@ -47,8 +47,11 @@ group by c.first_name
 having count(a.acc_id)>1;
 
 --TASK 3.9:
----------------------------------------------------------
----------------------------------------------------------
+select acc_id, 
+sum(select amnt from Accounts where trans_type='Deposit') -
+sum(select amnt from Accounts where trans_type='Withdrawl') as Transaction_diff
+from Transactions
+group by acc_id;
 
 --TASK 3.10:
 select acc_id, avg(balance) as Avg_Bal from Accounts
