@@ -127,6 +127,19 @@ join Crime c on s.crimeID = c.crimeID
 where c.status in('open','closed')
 order by c.Status;
 
+--same using join
+select v.name as victim_name,s.name as suspect_name,c.status
+from Crime c
+left join Victim v 
+on c.crimeID = v.crimeID 
+and c.status in ('open','closed')
+left join Suspect s 
+on c.crimeID = s.crimeID 
+and c.status in ('open','closed')
+where (v.crimeID is not null 
+or s.crimeID is not null)
+order by c.status;
+
 --10.
 select IncidentType from Crime
 where CrimeID = 
