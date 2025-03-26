@@ -74,7 +74,3 @@ from Customers c
 join Accounts a
 on c.cust_id=a.cust_id
 group by c.cust_id, c.first_name, a.acc_id, a.acc_type;
-
---TASK 3.14:
----------------------------------------------------------
----------------------------------------------------------

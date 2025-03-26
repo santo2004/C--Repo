@@ -43,16 +43,8 @@ where cust_id in
 group by cust_id
 having count(distinct acc_type)>1);
 
---TASK 4.8:
---------------------------------------
---------------------------------------
-
 --TASK 4.9:
 select * from Transactions
 where acc_id = 
 (select acc_id from Accounts
 where cust_id='4');
-
---TASK 4.10:
-------------------------------------
-------------------------------------
