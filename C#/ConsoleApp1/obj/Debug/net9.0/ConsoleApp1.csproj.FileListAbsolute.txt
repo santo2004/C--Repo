@@ -1,0 +1,15 @@
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/bin/Debug/net9.0/ConsoleApp1
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/bin/Debug/net9.0/ConsoleApp1.deps.json
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/bin/Debug/net9.0/ConsoleApp1.runtimeconfig.json
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/bin/Debug/net9.0/ConsoleApp1.dll
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/bin/Debug/net9.0/ConsoleApp1.pdb
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/ConsoleApp1.AssemblyInfoInputs.cache
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/ConsoleApp1.AssemblyInfo.cs
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/ConsoleApp1.csproj.CoreCompileInputs.cache
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/ConsoleApp1.sourcelink.json
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/ConsoleApp1.dll
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/refint/ConsoleApp1.dll
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/ConsoleApp1.pdb
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/ConsoleApp1.genruntimeconfig.cache
+/Users/santo/Desktop/C# Repo/C#/ConsoleApp1/obj/Debug/net9.0/ref/ConsoleApp1.dll
